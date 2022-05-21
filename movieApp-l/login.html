@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            height: 80px; width: 103%;
+            background-color: darkolivegreen;
+            display: flex;justify-content: right;
+            margin-left: -30px;
+        }
+        a{
+            color: blanchedalmond;
+            text-decoration: none;
+            margin:0px 60px 0px 0px;
+            padding-bottom: 10px;
+        }
+       #box{
+            height: 300px;width: 25%;
+            box-shadow: rgba(0,0,0,0.25) 0px 3px 9px;
+            text-align: center; border-radius: 5px;
+            align-items: center; position: absolute; top: 25%; left: 40%;
+             }
+       #box>h1{
+           padding-top: 18px; font-size: 35px;
+           color: darkolivegreen;
+       }
+       input{
+           width: 220px;height: 25px;
+           margin: 18px 0px 0px 0px; border-color: darkolivegreen;;
+       }
+       #sUP{
+        width: 120px;height: 30px; font-weight: 500;
+           margin: 20px 0px 0px 0px; color: white;border: 0;
+           background-color: darkolivegreen;;border-radius: 5px;
+       }
+</style>
+</head>
+<body>
+    <div id="navbar">
+          <h1><a href="home.html">HOME</a></h1>
+          <h1><a href="login.html">LOGIN</a></h1>
+          <h1><a href="signUp.html">SIGNUP</a></h1>
+    </div>
+    <div id="box">
+        <h1>LOGIN</h1>
+        <form id="signin"  action="">
+        <input id="mail" type="email" placeholder="Enter Your Email"/>
+        <input id="password" type="password" placeholder="Enter Your Password"/>
+      <br>  <input id="sUP" type="submit" value="Login">
+        </form>
+</div> 
+</body>
+</html>
+<script>
+    var data=JSON.parse(localStorage.getItem("datalist"))||[];
+      document.querySelector("#sUP").addEventListener("submit",signIndata)
+      function signIndata(){
+        eve.preventDefault();
+    //    let form = document.getElementById('signin');
+       var details={
+         mail:signin.mail.value,
+         password:signin.password.value};
+         localStorage.setItem("localdetails",JSON.stringify(details));
+         var local=JSON.parse(localStorage.getItem("localdetails"));
+
+       var findUser=data.find((c) => c.email==local.mail && x.password==local.password);
+    //    console.log(findUser);
+     
+      if(findUser!=undefined||findUser!=null){
+          alert("Signin Successfully => welcome to our HomePage");
+          window.location.href="home.html"
+        
+      }else{
+          alert("User Doesn't exist so please fill right details");
+          window.location.href="home.html"
+      }
+      
+       
+
+    }
+    // function Signupdata(name,number,mail,password){
+    //     this.name=name;
+    //     this.number=number;
+    //     this.mail=mail;
+    //     this.password=password;
+    // }
+
+</script>

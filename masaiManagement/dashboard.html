@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #navbar{
+            height: 80px;
+            width: 100%;
+            background-color: rgb(183, 128, 234);
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        a{
+            text-decoration: none;color: azure;
+        }
+        
+        #filterBatch{
+         height: 30px;
+            margin-left: 5px;
+            border-color: blueviolet;
+            border: 2px solid blueviolet;
+        }
+        #main{
+            margin-left: 10%;
+        }
+     .deleteText{
+          padding: 20px 0px 0px 100px;
+       }
+       #table{
+        text-align: center;  padding-left: 60px;
+       }
+       #table>th{
+         padding-left: 100px;
+         text-align: center;
+       }
+       .card{
+           padding: 0px 0px 0px 110px;
+       }
+       .heading{
+           text-align: center;
+           margin-bottom: 50px;
+       }
+ </style>
+</head>
+<body>
+    <div id="navbar">
+        <h1><a href="index.html">HOME</a></h1>
+        <h1><a href="dashboard.html">DASHBOARD</a></h1>
+         </div>
+  
+      <select id="filterBatch" onchange="filterByBatch()">
+        <option value="none">Filter by Batch</option>
+        <option value="FW18">FW18</option>
+        <option value="FW19">FW19</option>
+        <option value="FW20">FW20</option>
+        <option value="FW17">FW17</option>
+        <option value="FW16">FW16</option>
+      </select>
+      <h1 class="heading">Students Detail</h1>
+  
+      <table id="main">
+        <thead >
+          <tr id="table">
+            <th>Student Full Name</th>
+            <th>Course</th>
+            <th>Unit</th>
+            <th>Image</th>
+            <th>Batch</th>
+            <th>Removed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- All the students gets appended here  -->
+        </tbody>
+      </table>
+   
+</body>
+</html>
+<script>
+    var data = JSON.parse(localStorage.getItem("Students"))||[];
+    display(data);
+    
+     function filterByBatch(){
+           var select= document.querySelector("#filterBatch").value;
+           var studentList=data.filter((ele)=>{
+                return ele.batch==select;
+           })
+           console.log(studentList);
+           display(studentList)
+     }
+
+     function display(students){
+         document.querySelector("tbody").innerText="";
+         students.forEach((ele,index) => {
+             var tr=document.createElement('tr');
+
+             var td1 = document.createElement("td")
+              td1.innerText=ele.name;
+              td1.setAttribute("class","card")
+              var td2=document.createElement("td");
+              td2.innerText=ele.Course;
+              td2.setAttribute("class","card")
+              var td3=document.createElement("td");
+              td3.innerText=ele.unit;
+              td3.setAttribute("class","card")
+              var td4=document.createElement("img");
+               td4.setAttribute("src",ele.td4)
+               td4.setAttribute("class","card")
+              var td5=document.createElement("td");
+              td5.innerText=ele.batch;
+              td5.setAttribute("class","card")
+             
+               var td6=document.createElement("td");
+                td6.innerText='Removed';
+                td6.style.color = "red";
+                td6.style.cursor = "pointer";
+                td6.setAttribute("class","deleteText")
+                td6.addEventListener("click",()=>{
+                    removedStudent(ele,index);
+                })
+
+               tr.append(td1,td2,td3,td4,td5,td6);
+               document.querySelector('tbody').append(tr);
+         });
+
+     }
+     function removedStudent(ele,index){
+            data.splice(index,1);
+            localStorage.setItem("Students",JSON.stringify(data));
+            window.location.reload();
+     }
+</script>

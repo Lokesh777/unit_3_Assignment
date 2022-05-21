@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container{
+            /* width: 90%; */
+            margin: auto;
+           display: grid;
+           grid-template-columns: repeat(4,1fr);
+           grid-auto-rows: auto;
+           gap: 10px;
+        }
+        .card{
+            text-align: center;
+        }
+        .card>img{
+                width:100%;
+                /* background-color: red;
+                border: 1mm solid red; */
+        }
+        .card>h2{
+            text-align: center;
+            height: 40px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+            width: 90%;
+        }
+        .buttons{
+            /* border: 1mm solid black; */
+            justify-content: space-around;
+            display: flex;
+           
+        }
+        .buttons>button:nth-of-type(1){
+            color: red;
+            width: 20%;
+            height: 20px;
+        }
+        .buttons>button:nth-of-type(2){
+            /* color: red; */
+            width: 20%;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+
+</div>
+
+
+
+</body>
+</html>
+<script >
+var data= JSON.parse(localStorage.getItem("Products"))||[];
+display(data);
+
+function display(products){
+        var box=document.querySelector(".container").innerHTML="";
+        products.forEach(function(el,i){
+        var box=document.querySelector(".container");
+        var divA=document.createElement("div");
+        divA.setAttribute("class","card")
+
+        var image=document.createElement("img");
+        image.setAttribute("src",el.image)
+
+        let name=document.createElement("h2");
+        name.innerText=el.name;
+     
+        var price=document.createElement("p");
+        price.innerText=el.price;
+        var divB=document.createElement("div");
+        divB.setAttribute("class","buttons")
+        var btnA=document.createElement("button");
+        btnA.innerText="Remove"
+         btnA.addEventListener("click",function(){
+             deletefun(el,i)
+         })   
+        var btnB=document.createElement("button");
+        btnB.innerText="Sold"
+        
+        btnB.addEventListener("click",function(){
+          soldfun(el,i,btnB);
+         }) 
+       divA.append(image,name,price,divB);
+      box.append(divA)
+        
+    })
+}
+        var soldcount=false;
+        function deletefun(el,i){
+        data.splice(i,1)
+        localStorage.setItem("Products",JSON.stringify(data));
+        window.location.reload();
+}
+         function soldfun(el,i,btnB){
+            if(el.sold=="false"){
+            el.sold="true";
+            btnB.style.color="green"
+       }
+            else if(el.sold=="true"){
+                el.sold="false";
+                btnB.style.color="red"
+            }
+  
+}
+</script>

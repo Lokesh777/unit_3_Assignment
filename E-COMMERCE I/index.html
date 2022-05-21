@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="setProduct(event)" id="products" >
+           <input id="name" type="text" placeholder="Enter Product Name"/>
+           <input id="category" type="text" placeholder="Enter Category name"/>
+           <input type="url" name="" id="image" placeholder="Image Url"/>
+           <input type="number" placeholder="Price" id="price"/>
+           <select name="gender" id="gender">
+               <option value="none" id="none">select</option>
+               <option value="male" id="male">Male</option>
+               <option value="female" id="female">Female</option>
+           </select>
+           <select name="boolean" id="sold">
+               <option value="none" id="none">boolean</option>
+               <option value="false" id="false">False</option>
+               <option value="true" id="true">True</option>
+           </select>
+           <input type="submit" id="add"/>
+        </form>
+</body>
+</html>
+<script src="index.js"></script>

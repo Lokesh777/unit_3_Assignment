@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           #navbar{
+               height: 80px;
+               width: 100%;
+               background-color: rgb(183, 128, 234);
+               display: flex;
+               justify-content: space-around;
+               margin-bottom: 30px;
+           }
+           a{
+               text-decoration: none;color: azure;
+           }
+           input{
+               height: 25px;
+               margin-left: 5px;
+               border-color: blueviolet;
+           }
+           #batch{
+            height: 30px;
+               margin-left: 5px;
+               border-color: blueviolet;
+               border: 2px solid blueviolet;
+           }
+           #submited{
+              height: 30px;width: 80px;
+               margin-left: 5px;
+               background-color: blueviolet;
+               color: white;
+           }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <h1><a href="index.html">HOME</a></h1>
+        <h1><a href="dashboard.html">DASHBOARD</a></h1>
+         </div>
+        <form onsubmit="addTheStudent(event)" id="manage" action="">
+            <input id="name" type="text" placeholder="Enter the Name Here"/>
+            <input id="course" type="text" placeholder="Course Type..FSWD"/>
+            <input id="unit" type="text" placeholder="Enter your Unit type"/>
+            <input id="image_url" type="url" placeholder="Enter the Image Url"/>
+            <select id="batch">
+                <option value="none">Filter by Batch</option>
+                <option value="FW18">FW18</option>
+                <option value="FW19">FW19</option>
+                <option value="FW20">FW20</option>
+                <option value="FW17">FW17</option>
+                <option value="FW16">FW16</option>
+              </select>
+            <input id="submited" type="submit" />
+        </form>
+</body>
+</html>
+<script>
+        var Array= JSON.parse(localStorage.getItem('Students'))||[];
+            function addTheStudent(eve){
+              eve.preventDefault();
+              let form = document.getElementById('manage');
+              let name=form.name.value;
+              let course=form.course.value;
+              let unit=form.unit.value;
+              let images=form.image_url.value;
+              let batch=form.batch.value;
+              let pass=new AddTheStudent(name,course,unit,images,batch)
+              Array.push(pass);
+              localStorage.setItem("Students",JSON.stringify(Array));
+              window.location.href='dashboard.html'
+            }
+            function AddTheStudent(name,course,unit,images,batch){
+                this.name=name;
+                this.course=course;
+                this.unit=unit;
+                this.images=image_url;
+                this.batch=batch;
+            }
+</script>

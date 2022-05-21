@@ -1,0 +1,57 @@
+*{
+    
+    margin: auto;
+    text-align:center;
+    background-color:plum;
+   
+}
+#game{
+    display: flex;
+    margin-top: 3rem;
+  
+}
+h1{
+   border: 1px solid red;
+   background-color: white;
+}
+/* img{
+    width: 80px;
+} */
+#member-1{
+margin-right: -25rem;
+}
+#member-2{
+    margin-right: -25rem;
+    }
+
+button{
+   margin-left: 10px;
+   margin-top: 45px; 
+   font-size: 12px;
+   width:400px;height: 30px;
+   background-color: white;
+   border: 0;border: 5px;
+
+}
+button:hover{
+    transform: scale(1.1); 
+    background-color: rgb(155, 155, 228);
+}
+
+
+#result{
+    font-size: 50px;
+    font-weight: 900;
+    
+}
+
+
+@media screen {
+    #member-1{
+        margin-right: 0;
+        }
+    #member-2{
+         margin-right: 0;
+         }
+         
+}
