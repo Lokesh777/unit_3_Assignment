@@ -80,6 +80,8 @@ function playGame(){
                 img1.style.backgroundColor="blue";
                 img2.style.backgroundColor="blue";
                 img3.style.backgroundColor="blue";
+                document.querySelector("#result").innerHTML="Match Tie"
+        
             
     }
     
@@ -88,21 +90,21 @@ function playGame(){
         img2.style.backgroundColor="blue";
         document.querySelector("#result").innerHTML="Mamber A&B is winner"
          
-        // img3.style.backgroundColor="blue";
+        img3.style.backgroundColor="yellow";
     }
     else if(randNum2==randNum3&&randNum2>randNum1&&randNum3>randNum1){
         img3.style.backgroundColor="blue";
         img2.style.backgroundColor="blue";
         document.querySelector("#result").innerHTML="Mamber B&C is winner"
          
-        // img3.style.backgroundColor="blue";
+        img1.style.backgroundColor="red";
     }
     else if(randNum3==randNum1&&randNum1>randNum2&&randNum3>randNum2){
         img1.style.backgroundColor="blue";
         img3.style.backgroundColor="blue";
         document.querySelector("#result").innerHTML="Mamber A&C is winner"
          
-        // img3.style.backgroundColor="blue";
+        img2.style.backgroundColor="yellow";
     }
 }   
    
