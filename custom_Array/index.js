@@ -1,22 +1,31 @@
-const automobiles ={
+// ---object created--- 
+const automobiles = {
     name:"Suzuki",
-    wheel:4,
-    window:4,
-    door:4,
+    wheel:"MRF",
+    window:"tata",
+    door:"four",
     seating_capacity:"5",
     fuel_type:"petrol&diesal",
     manual:true,
+    seller:"tata automobiles pvt.ltd.",
     ARIL_mileage:true,
 
 };
 
-const fourWheeler=Object.create(automobiles);
-console.log(fourWheeler)
-fourWheeler.name="TATA_NANO";
+let fourWheeler=Object.create(automobiles);
+automobiles.type="Nano",
+automobiles.brake="hyd&manual",
+automobiles.color="red",
+automobiles.seating_capacity="four",
+automobiles.sunroof='true',
 console.log(fourWheeler);
 
-function Product(type){
+
+function Product(type,color,brake,sunroof){
 this.type=type;
+this.color=color;
+this.brake=brake;
+this.sunroof=sunroof;
 (this.belt = true),
 (this.wheel=4),
 (this.window=4),
@@ -25,45 +34,9 @@ this.type=type;
 (this.manual=true),
 (this.ARIL_mileage=true),
 (this.seatbelt = true);
-
-
 };
-Product.prototype.Free=function (){
-    console.log("free_Drive")
-}
 
-Product.prototype.changeType=function (type){
-    this.type=type;
-};
-let item3 =new Product("Bentley");
-item3.Free();
-console.log(item3);
 
-let item =new Product("Mahindra");
-item.changeType("Thar");
-console.log(item)
 
-let item2 =new Product("Rolls Royce");
-console.log(item2)
-
-// //define the length here
-
-// let Array=new myBox(1,2,3,4);
-// function myBox(){
-
-//     Object.defineProperty(this,"length",{
-//         value:0,
-//         writable:true,
-//         emunerable:false,
-//     });
-//     this.length=arguments.length;
-//     for(let i=0;i<arguments.length;i++){
-//         this[i]=arguments[i];
-//     }
-// }
-// console.log(Array)
-// // ------length=====
-// function lengthCheck(){
-//     console.log(arguments.length)
-// }
-// lengthCheck(1,2,3,4)
+var newcar=new Product("Nano","red","Antilock","true")
+console.log(newcar)
