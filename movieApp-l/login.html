@@ -48,36 +48,52 @@
     <div id="box">
         <h1>LOGIN</h1>
         <form id="signin"  action="">
-        <input id="mail" type="email" placeholder="Enter Your Email"/>
-        <input id="password" type="password" placeholder="Enter Your Password"/>
+        <input id="mail" type="text" placeholder="Enter Your Email"/>
+        <input id="password" type="text" placeholder="Enter Your Password"/>
       <br>  <input id="sUP" type="submit" value="Login">
         </form>
 </div> 
 </body>
 </html>
 <script>
-    var data=JSON.parse(localStorage.getItem("datalist"))||[];
-      document.querySelector("#sUP").addEventListener("submit",signIndata)
+    var signUpdata=JSON.parse(localStorage.getItem("signupData"));
+      var form=document.querySelector("#signin").addEventListener("submit",signIndata)
+     
+      let logInArray=JSON.parse(localStorage.getItem("loginData"))||[]
+      
       function signIndata(){
-        eve.preventDefault();
+        event.preventDefault();
     //    let form = document.getElementById('signin');
        var details={
-         mail:signin.mail.value,
-         password:signin.password.value};
-         localStorage.setItem("localdetails",JSON.stringify(details));
-         var local=JSON.parse(localStorage.getItem("localdetails"));
+         email:signin.mail.value,
+         password:signin.password.value,
+        };
+        let x=checklogin(details)
 
-       var findUser=data.find((c) => c.email==local.mail && x.password==local.password);
-    //    console.log(findUser);
+        function checklogin(details){
+            signUpdata.forEach(function(ele) {
+                if(ele.mail !== details.email||ele.password!==details.password){
+                    alert("User Doesn't exist so please fill right information")
+                }else{
+                    alert("Signin Successfully => welcome to our HomePage")
+                    window.location.href="home.html"
+                }
+            });
+        }
+    //      localStorage.setItem("localdetails",JSON.stringify(details));
+    //      var local=JSON.parse(localStorage.getItem("localdetails"));
+
+    //    var findUser=data.find((c) => c.email==local.mail && x.password==local.password);
+    // //    console.log(findUser);
      
-      if(findUser!=undefined||findUser!=null){
-          alert("Signin Successfully => welcome to our HomePage");
-          window.location.href="home.html"
+    //   if(findUser!=undefined||findUser!=null){
+    //       alert("Signin Successfully => welcome to our HomePage");
+    //       window.location.href="home.html"
         
-      }else{
-          alert("User Doesn't exist so please fill right details");
-          window.location.href="home.html"
-      }
+    //   }else{
+    //       alert("User Doesn't exist so please fill right details");
+    //       window.location.href="home.html"
+    //   }
       
        
 

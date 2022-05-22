@@ -19,7 +19,7 @@
                 padding-bottom: 10px;
             }
            #box{
-                height: 400px;width: 25%;
+                height: 400px;width: 20%;
                 box-shadow: rgba(0,0,0,0.25) 0px 3px 9px;
                 text-align: center; border-radius: 5px;
                 align-items: center; position: absolute; top: 25%; left: 40%;
@@ -47,36 +47,55 @@
     </div>
      <div id="box">
             <h1>Signup</h1>
-            <form id="signupinfo" onsubmit="signupdata(event)" action="">
+            <form id="signupinfo"  action="">
             <input id="name" type="text" placeholder="Enter Your Name"/>
             <input id="number" type="number" placeholder="Enter Your Contact"/>
             <input id="mail" type="email" placeholder="Enter Your Email"/>
             <input id="password" type="password" placeholder="Enter Your Password"/>
-          <br>  <input id="sUP" type="submit" value="Signup">
+         <input id="sUP" type="submit" value="Signup">
             </form>
     </div> 
 </body>
 </html>
 <script>
-        var data=JSON.parse(localStorage.getItem("datalist"))||[];
+       
 
-          function signupdata(ele){
-            // eve.preventDefault();
-           let form = document.getElementById('signupinfo');
-           let name=form.name.value;
-           let number=form.number.value;
-           let mail=form.mail.value;
-           let password=form.password.value;
-           let pass = new Signupdata(name,number,mail,password)
-           data.push(pass);
-           localStorage.setItem("datalist",JSON.stringify(data));
-           window.location.href="login.html"
 
+
+let form = document.querySelector("#signupinfo")
+form.addEventListener("submit",signupFun)
+
+let storage=JSON.parse(localStorage.getItem("signupData")) || [];
+
+function signupFun(){
+    event.preventDefault();
+
+    var data={
+        name :signupinfo.name.value,
+        contact:signupinfo.number.value,
+        mail:signupinfo.mail.value,
+        password:signupinfo.password.value,
+    }
+ let x=confirmDetails(data)
+
+    function confirmDetails(data){
+        if(data.name==""||data.contact==""||data.mail==""||data.password=="")
+        {
+            return false;
         }
-        function Signupdata(name,number,mail,password){
-            this.name=name;
-            this.number=number;
-            this.mail=mail;
-            this.password=password;
-        }
+     }
+ if(x==false){
+       alert("Please fill all the details here!")
+       window.location.reload();
+   }
+   else{
+    storage.push(data)
+
+        localStorage.setItem("signupData",JSON.stringify(storage))
+    
+       window.location.href="login.html"
+   }
+
+    
+}
 </script>

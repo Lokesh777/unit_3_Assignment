@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
             #navbar{
-                height: 80px; width: 103%;
+                height: 80px; width: 103.4%;
                 background-color: darkolivegreen;
                 display: flex;justify-content: right;
                 margin-left: -30px;
@@ -18,6 +18,46 @@
                 margin:0px 60px 0px 0px;
                 padding-bottom: 10px;
             }
+            .picSlide{
+                width: 102%;
+                height: 350px;
+                margin: -20px 0px 0px -10px;
+                
+            }
+            #front{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(3,auto);
+                gap: 20px;
+                margin-top: 2rem;
+                text-align: center;
+                
+            }
+            #front>div{
+                flex-wrap: wrap;
+                margin: 1rem .2rem 1rem 1rem;
+
+            }
+            h1{
+               margin-bottom:-3px ;color: rgb(74, 93, 41);
+            }
+            h4{
+                margin-bottom:-10px ;color: gray;
+                margin-top: 5px;
+            }
+            h3{
+                color: rgb(106, 105, 105);
+            }
+            .btn{
+              background-color: darkolivegreen;border-radius: 5px;
+              width: 60px;border: 0;height: 25px;color: aliceblue;
+              box-shadow: rgba(0,0,0,0.25) 0px 3px 9px;
+            }
+            img{
+                box-shadow: rgba(0, 0, 0, 0.512) 0px 6px 9px;
+                 
+            }
+
     </style>
 </head>
 <body>
@@ -26,5 +66,191 @@
           <h1><a href="login.html">LOGIN</a></h1>
           <h1><a href="signUp.html">SIGNUP</a></h1>
     </div>
+
+            <!-- <button onclick="start()">start</button>
+            <button onclick="pause()">pause</button> -->
+            <div id="bag"></div>
+         
+                <p>Sort By rating:</p>
+                <select id="SortByRating" onchange="filterByRating()">
+                    <option value="none">Sorting by Rating</option>
+                    <option value="5">Highest</option>
+                    <option value="4">High</option>
+                    <option value="3">Mid</option>
+                    <option value="2">Low</option>
+                    <option value="1">Lowest</option>
+                  </select>
+
+             <div id="front"></div>
 </body>
 </html>
+<script>
+           let i=0;let id;
+        //    function start(){
+         
+           var images=[
+             "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/1511/1161511-h-a103f5d4c916",  
+            "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/475/1250475-h-d2dd77afa6ce",
+            "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/9910/1239910-h-1ebe8c6ecdaa",
+            "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/2180/1122180-h-0046ac044aa6",
+            "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/8773/1028773-h-48170a73363e"
+             ];
+             var bag=document.getElementById("bag");
+             let img=images[i]  //accessing the img
+              console.log("i:",i);
+             
+              let pic=document.createElement("img")
+                pic.src=img;
+                pic.setAttribute('class','picSlide')
+                bag.append(pic);
+                i++;
+
+             id=setInterval(function(){
+
+                 if(i==images.length){
+                     i=0;
+                 }
+
+              bag.innerHTML=null;
+              img=images[i]  //accessing the img
+              console.log("i:",i);
+               
+                pic=document.createElement("img")
+                pic.src=img;
+                pic.setAttribute('class','picSlide')
+                bag.append(pic);
+                i++;   
+             },3000)
+            // }
+            //  function pause(){
+            //      clearInterval(id);
+            //  }
+
+            //  <-------landing page here-------->
+
+var movies=[
+     { 
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1518/1161518-v-8d86a7ed8500" ,
+       name: "MoonNight",
+       date: "30 March 22",
+       rating:4.5,
+     },
+{     
+        url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1684/1011684-v-374e17c7e183" ,
+        name: "Loki",
+        date: "9 June 21",
+        rating:4.8,
+        
+},
+{    
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/3022/1083022-v-90c34f714f7a",
+       name: "Hawkeye",
+       date: "24 Nov 21",
+       rating:4.8,
+        
+}, 
+{     
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1258/911258-v",
+      name: "WandaVision",
+       date: "15 Jan 21",
+        rating:4.7,
+       
+},
+{     
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/7519/1097519-v-7235f9a4b235",
+       name: "Eternals",
+       date: "10 Feb 21",
+        rating:4.9,
+},
+{     url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4971/674971-v",
+       name: "Doctor Strange",
+       date: "10 Dec 16",
+        rating:5.0,
+},
+{      url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/5391/1770015391/1770015391-v",
+       name: "X-Men:Apocalypse",
+       date: "10 Oct 16",
+       rating:4.9,
+},
+{      
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5190/875190-v",
+       name: "Captain Marvel",
+       date: "10 March 19",
+        rating:5.1,
+},
+{     
+       url:"https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/5167/875167-v",
+       name: "Avengers:Infinity War",
+       date: "20 May 18",
+        rating:4.1,
+},
+]
+
+localStorage.setItem("storeMovies",JSON.stringify(movies));
+var play = JSON.parse(localStorage.getItem("payToWatch"))||[];
+// console.log(movies)
+   var filter=document.querySelector("#SortByRating");
+   function filterByRating(){
+    var select=document.querySelector("#SortByRating").value;
+    var RatingList=fav.filter((ele)=>{
+      return ele.rating==select;
+
+    });
+    console.log(RatingList);
+    display(RatingList);
+}
+//    function handlePrice(){
+//   var selected=document.querySelector("#SortByRating").value;
+//   if(selected=="LTH"){
+//     movies.sort(function(a,b){
+//       return a.rating-b.rating;
+//     })
+//     console.log(movies);
+//     displayData(movies)
+//   }
+//   if(selected=="HTL"){
+//     movies.sort(function(a,b){
+//       return b.rating-a.rating;
+//     })
+//     console.log(movies);
+//     displayData(movies)
+//   }
+// }
+
+ movies.forEach(function(ele){
+     var bag=document.createElement("div");
+
+     var url=document.createElement("img");
+     url.setAttribute("src",ele.url);
+
+     var name=document.createElement("h1");
+     name.innerText=ele.name;
+
+     var date=document.createElement("h4");
+     date.innerText=ele.date;
+
+     var rating=document.createElement("h3");
+     rating.innerText=ele.rating+" Star";
+
+     var btn=document.createElement("button")
+     btn.setAttribute("class",'btn')
+     btn.innerText="Buy"
+     btn.addEventListener("click",function(){
+         nextPage(ele);
+     })
+     bag.append(url,name,date,rating,btn)
+     document.querySelector("#front").append(bag);
+ }) 
+  
+
+
+
+
+ function nextPage(ele){
+  play.push(ele);
+  localStorage.setItem("payToWatch",JSON.stringify(play));
+  alert("Your Wallet Balance is low !_please recharge it")
+ }
+
+   
+</script>
