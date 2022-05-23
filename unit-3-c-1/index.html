@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <button id="show_products"> <a href="inventory.html">Show Product</a> </button>
+
+      <div> <h1>PUMA</h1>
+        <h1>SIGNUP</h1>
+        <h1>LOGIN</h1>
+        <h1>HELP DESK</h1></div>
+      <!--Create Show Products button here, give id as "show_products". avoid making spelling mistakes in HTML id's-->
+    </div>
+    <div id="landing">
+      <!-- <button> <a href="inventory.html"></a> </button> -->
+      <h2>Add Products</h2>
+      <!--Create a form here to accept product data from user, give form HTML id as "products"-->
+           <form id="products" onsubmit="addProducts(event)"> 
+              <input id="type" placeholder="Type" type="text"/> <br>
+              <input id="desc" placeholder="Description" type="text"/><br>
+              <input id="price" placeholder="Price" type="text"/> <br>
+              <input id="image" placeholder="Enter image Url" type="url"/><br>
+             <button id="add_product">Add Product</button>    
+       </form>
+     
+      <!--Create four inputs to accept Type, Description, price, & image-->
+      <!--give the inputs following respective id's, "type", "desc", "price","image"-->
+      <!--create a "Add Product" button to submit form, give it html id as "add_product"-->
+      </form>
+    </div>
+  </body>
+</html>
+
+<script src="./scripts/index.js">
+     
+  
+</script>

@@ -21,7 +21,7 @@
 // }
 // funt()
 
-//it give window object
+// it give window object
 
 //  ***********
 // let obj={
@@ -31,9 +31,9 @@
 //     },
 // };
 // obj.print();
-//this will refere to an object
-//this will refer either to global or window or custom object which you creator
-//this always refer to its parent object
+// this will refere to an object
+// this will refer either to global or window or custom object which you creator
+// this always refer to its parent object
 // ******************
 // function fun(n,b,p){
 //     var obj={}
@@ -80,7 +80,7 @@
 //  arr.push(p);
 //  console.log(arr)
 // }
-//------------call, APPLY, BIND----->>>>>>
+// ------------call, APPLY, BIND----->>>>>>
 // let bedroom={
 //     name:"bendroom",
 //     purpose:"sleep",
@@ -127,7 +127,7 @@
 // };
 // function food(food){
 //     console.log(`serving ${food} in ${this.name}`); //string literal
-    // console.log("serving" +food + "in" + this.name); 
+//     console.log("serving" +food + "in" + this.name); 
 // };
 // food.call(bedroom,"pizza")
 // food.call(LivingRoom,"pizza")
@@ -263,10 +263,10 @@
 //             this[i]=arguments[i];
 //         }
 //     }
-    // let arr3=new myArray(1,2,3,4,5,6,6);
-    // console.log(Object.values(arr3))
-    // ***************
-    // ------arguments-------
+//     let arr3=new myArray(1,2,3,4,5,6,6);
+//     console.log(Object.values(arr3))
+//     ***************
+//     ------arguments-------
 // function check(){
 //     console.log(arguments.length)
 // }
@@ -301,11 +301,11 @@
 // //Prototype chaining
 // // ****************************************
 
-//------------ day 3------------>
+// ------------ day 3------------>
 
 // setTimeout----once 
 // setInterval---multiple time
-//forword watch 
+// forword watch 
 // let h1= document.getElementById('counter');
 
 // function counter(){
@@ -322,22 +322,22 @@
 // counter();
 // ****************************************
 // reverse time watch 
-let h1= document.getElementById('counter');
+// let h1= document.getElementById('counter');
 
-function counter(){
-    let i=60;
+// function counter(){
+//     let i=60;
   
-  let id = setInterval(function(){
-    i=i-1;
-    h1.innerText=i
-    if(i==0){
-          clearInterval(id);
-          alert("timeout!!!");
-      }
+//   let id = setInterval(function(){
+//     i=i-1;
+//     h1.innerText=i
+//     if(i==0){
+//           clearInterval(id);
+//           alert("timeout!!!");
+//       }
         
-    },100);
-}
-counter();
+//     },100);
+// }
+// counter();
 // *******************************************
 
 

@@ -1,0 +1,43 @@
+#navbar{
+    height: 60px;width: 102%;
+    background-color: darkviolet;
+    margin: -1% 0% 0% -1%;
+}
+#navbar>div{
+    display: flex;
+  margin-left: 35%; color: antiquewhite;
+
+}
+#navbar>div>h1{
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+#show_products{
+    margin: 1rem 0rem 0rem 2rem;
+    height: 30px;width: 15%;
+    background-color: white;
+   border: 0;
+    box-shadow: rgba(0,0,0,0.38) 0px 5px 8px;
+}
+a{
+    text-decoration: none;
+    color: black;font-weight: 700;
+}
+#landing{
+    margin-top: 5%;
+    text-align: center;
+}
+
+input{
+    margin: .5rem 0rem 1rem 0rem;
+    height: 30px;width: 30%;border-color: darkorchid;;
+}
+#add_product{
+    margin: .5rem 0rem 1rem 0rem;
+    height: 30px;width: 20%; border: 0;
+    background-color: darkorchid;
+    color: white;font-weight: 700;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.38) 0px 5px 8px;
+
+}

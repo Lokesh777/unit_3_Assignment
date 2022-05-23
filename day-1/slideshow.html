@@ -21,24 +21,18 @@
 //   i=i+1; increament so we don't see the img[0] again;
  id =  setInterval(function(){
         if(i== images.length){
-            i=0;
-        }
+            i=0;}
      container.innerHTML=null;
      let image = images[i] //accessing the image
-     console.log('i:',i)
-      //noew appended the image
+     console.log('i:',i) //noew appended the image
       let img=document.createElement('img')
        img.src=image;
       container.append(img);
-
-      i++;
-
+        i++;
     },3000)
  }
 
  function pause() {
          clearInterval(id);
      }
-
-
 </script>
